@@ -1,0 +1,23 @@
+<%= bootstrap_form_with(model: course, local: true, :html => {:class => 'col-md-4'}) do |form| %>
+  <% if course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+      <ul>
+        <% course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+      <%= form.text_field :nome %>
+      <%= form.text_field :sigla %>
+      <%= form.text_field :site %>
+
+    <h3>Instrutor</h3>
+    <%= form.fields_for :coordinator do |coordinator_fields| %>
+        <%= coordinator_fields.text_field :nome %>
+        <%= coordinator_fields.text_field :matricula %>
+        <%= coordinator_fields.text_field :senha %>
+    <% end %>
+      <%= form.submit %>
+<% end %>

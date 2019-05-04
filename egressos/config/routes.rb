@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   get 'home/index'
-  resources :contacts
   resources :students
   resources :coordinators
   resources :courses

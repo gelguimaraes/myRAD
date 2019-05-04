@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_195727) do
+ActiveRecord::Schema.define(version: 2019_05_02_191941) do
 
   create_table "contacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "tipo"
     t.string "valor"
+    t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_contacts_on_student_id"
   end
 
   create_table "coordinators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_195727) do
     t.index ["course_id"], name: "index_students_on_course_id"
   end
 
+  add_foreign_key "contacts", "students"
   add_foreign_key "coordinators", "courses"
   add_foreign_key "students", "courses"
 end

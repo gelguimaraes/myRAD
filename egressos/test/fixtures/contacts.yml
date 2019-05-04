@@ -3,9 +3,9 @@
 one:
   tipo: MyString
   valor: MyString
-  course: one
+  student: one
 
 two:
   tipo: MyString
   valor: MyString
-  course: two
+  student: two
